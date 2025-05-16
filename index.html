@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AmmoVerse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-pink-100 text-gray-800 font-orbitron">
+
+  <!-- Header -->
+  <header class="bg-pink-400 p-4 shadow-md flex justify-between items-center">
+    <h1 class="text-3xl font-bold text-pink-50">AmmoVerse</h1>
+    <nav>
+      <a href="#submit" class="text-pink-100 hover:text-pink-200">Submit Your Gun</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-12 bg-gradient-to-r from-pink-300 to-pink-200">
+    <h2 class="text-5xl font-extrabold mb-4 text-pink-700">Gear Up. Lock & Load.</h2>
+    <p class="text-pink-600 text-xl font-semibold">Enter the vault of legendary weapons. Style, power, and prestige—all in one loadout.</p>
+  </section>
+
+  <!-- Gun Grid -->
+  <section class="p-6 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    <!-- Gun Card 1 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Crimson Talon"
+       data-lore="The Crimson Talon is a legendary assault rifle known for its unmatched accuracy and fiery aesthetics. Favored by elite marksmen across the realms."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun1.png" alt="AK-47" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Crimson Talon</h3>
+          <p class="text-pink-200">7.62mm | Classic Assault</p>
+          <p class="mt-2 font-bold text-white">$999</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 2 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Void Reaver"
+       data-lore="Forged from the remnants of a dying star, the Void Reaver channels pure cosmic energy, unleashing devastating beams that pierce the void itself."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun2.png" alt="Laser Blaster" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Void Reaver</h3>
+          <p class="text-pink-200">Energy | Sci-Fi Grade</p>
+          <p class="mt-2 font-bold text-white">$1,299</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 3 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="StormHowl"
+       data-lore="The StormHowl sniper rifle echoes with thunderous might. Its .50 caliber rounds are said to split the sky, striking fear and awe in equal measure."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun3.png" alt="Thunder Sniper" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">StormHowl</h3>
+          <p class="text-pink-200">.50 Cal | Long Range</p>
+          <p class="mt-2 font-bold text-white">$1,499</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 4 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Neon Viper"
+       data-lore="A favorite among urban operatives, the Neon Viper combines sleek design with serpentine agility, delivering precise shots in the dead of night."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun4.png" alt="Phoenix Rifle" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Neon Viper</h3>
+          <p class="text-pink-200">5.56mm | Balanced Precision</p>
+          <p class="mt-2 font-bold text-white">$1,099</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 5 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Ashbringer X9"
+       data-lore="The Ashbringer X9 is a cannon of myth, its explosive payloads reducing obstacles to cinders. Only the bravest dare to wield its raw power."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun5.png" alt="Flare Cannon" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Ashbringer X9</h3>
+          <p class="text-pink-200">Explosive | Heavy Damage</p>
+          <p class="mt-2 font-bold text-white">$2,000</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 6 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Hex Pulse"
+       data-lore="A rapid-fire SMG pulsing with arcane energy, the Hex Pulse overwhelms foes with a torrent of bullets and a touch of dark magic."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun6.png" alt="Venom SMG" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Hex Pulse</h3>
+          <p class="text-pink-200">9mm | Rapid Fire</p>
+          <p class="mt-2 font-bold text-white">$850</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 7 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Ion Fang"
+       data-lore="The Ion Fang is a silenced pistol that strikes with lightning speed. Its energy-infused rounds leave no trace—only whispers in the shadows."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun7.png" alt="Shadow Pistol" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Ion Fang</h3>
+          <p class="text-pink-200">Silent | Close Combat</p>
+          <p class="mt-2 font-bold text-white">$600</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 8 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Phantom Echo"
+       data-lore="Silent as snowfall, the Phantom Echo freezes its targets in place. Its cryo rounds are a chilling reminder of winter's wrath."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun8.png" alt="Frostbite" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Phantom Echo</h3>
+          <p class="text-pink-200">Cryo | Tactical Freeze</p>
+          <p class="mt-2 font-bold text-white">$1,350</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 9 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Skullfire MK-II"
+       data-lore="A rare EMP weapon, the Skullfire MK-II disables tech and terrifies enemies with its skull-shaped muzzle flash. Only the bold attempt to master it."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun9.png" alt="Darkpulse" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Skullfire MK-II</h3>
+          <p class="text-pink-200">Energy | EMP Specialist</p>
+          <p class="mt-2 font-bold text-white">$1,750</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 10 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Spectral Surge"
+       data-lore="The Spectral Surge channels ghostly energy, allowing its wielder to phase through cover and strike from the spirit realm. Unpredictable and feared."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun10.png" alt="Spectral Surge" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Spectral Surge</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,150</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 11 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Rogueflare"
+       data-lore="The Rogueflare is the weapon of exiles, firing incendiary rounds that blaze trails of rebellion. Outlaws and freedom fighters covet its fire."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun11.png" alt="Rogueflare" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Rogueflare</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,080</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 12 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Tundra Spike"
+       data-lore="Forged in the frostbitten north, the Tundra Spike fires crystalline projectiles that slow and impale. Its chill lingers long after battle."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun12.png" alt="Tundra Spike" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Tundra Spike</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$940</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 13 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Nova Gauntlet"
+       data-lore="Wielding the Nova Gauntlet is like harnessing a supernova in your hands. Its shockwaves can clear entire rooms in a single burst."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun13.png" alt="Nova Gauntlet" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Nova Gauntlet</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,400</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 14 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Plasma Widow"
+       data-lore="Deadly and elegant, the Plasma Widow fires web-like streams of plasma that ensnare and burn. A favorite of assassins in the neon underworld."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun14.png" alt="Plasma Widow" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Plasma Widow</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,100</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 15 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Aether Coil"
+       data-lore="The Aether Coil bends the laws of physics, firing projectiles that curve around obstacles. Its mysterious energy is as unpredictable as its aim."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun15.png" alt="Aether Coil" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Aether Coil</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,350</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 16 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Blightlock"
+       data-lore="Cursed by ancient rituals, the Blightlock infects targets with corrosive rounds. Each shot spreads a toxic plague on the battlefield."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun16.png" alt="Blightlock" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Blightlock</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$980</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 17 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Zenith Ripper"
+       data-lore="The Zenith Ripper tears through armor with rotating blades and hypervelocity rounds. Its brutal design is matched only by its efficiency."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun17.png" alt="Zenith Ripper" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Zenith Ripper</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,250</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 18 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Oblivion Shard"
+       data-lore="Fragments of an ancient meteor power the Oblivion Shard, a weapon that erases both memory and matter with every shot."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun18.png" alt="Oblivion Shard" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Oblivion Shard</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,670</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 19 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Glitchbane"
+       data-lore="Originally designed to debug rogue AIs, the Glitchbane now disrupts digital and organic foes alike with bursts of code-breaking energy."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun19.png" alt="Glitchbane" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Glitchbane</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,040</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 20 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Echo Drifter"
+       data-lore="The Echo Drifter is a nomad's best friend, its sound-dampening tech and adaptive rounds perfect for those who walk the wastelands alone."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun20.png" alt="Echo Drifter" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Echo Drifter</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,180</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Gun Card 21 -->
+    <a href="javascript:void(0)"
+       class="bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow h-80 text-sm cursor-pointer"
+       data-title="Reactor Fang"
+       data-lore="Powered by a miniature fusion core, the Reactor Fang unleashes searing blasts. Only those with nerves of steel can master its bite."
+    >
+      <div class="border border-black rounded-md p-2 bg-pink-300">
+        <img src="gun21.png" alt="Reactor Fang" class="h-32 mx-auto my-4 object-contain">
+      </div>
+      <div class="border border-black rounded-b-md">
+        <div class="bg-pink-600 p-4 rounded-b-md">
+          <h3 class="text-xl font-semibold text-pink-100">Reactor Fang</h3>
+          <p class="text-pink-200">Type | Description</p>
+          <p class="mt-2 font-bold text-white">$1,600</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Submission Callout -->
+    <div id="submit" class="col-span-full mt-12 bg-pink-100 border-2 border-pink-400 rounded-lg p-6 text-center shadow-lg font-sans">
+      <h3 class="text-3xl font-extrabold text-pink-800 mb-2 tracking-wide">Submit a Gun. Make It a Legend.</h3>
+      <p class="text-pink-700 mb-3">Got a favorite weapon from your gaming grind or cinematic dreamscape?</p>
+      <p class="text-pink-600 mb-3">Join the AmmoVerse crew. Add your legendary loadout with just one pull request.</p>
+      <p class="text-pink-500 italic">No textures. No render rigs. Just pure lore and firepower.</p>
+      <a href="https://github.com/shivanisharma04/ammoverse" target="_blank" class="inline-block mt-4 px-6 py-2 bg-pink-700 text-white font-semibold rounded hover:bg-pink-800 transition">
+        Contribute on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-6 mt-12 border-t border-pink-400 text-pink-600">
+    © 2025 AmmoVerse. All loadouts fictional.
+    <br>
+    Gun artwork credit: <a href="https://www.deviantart.com" target="_blank" class="underline hover:text-pink-500">DeviantArt creators</a>
+  </footer>
+
+</body>
+  <!-- Lore Modal -->
+  <div id="loreModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 hidden z-50">
+    <div class="bg-pink-900 rounded-lg max-w-lg w-full p-6 relative">
+      <button id="closeModal" class="absolute top-3 right-3 text-pink-300 hover:text-pink-100 text-2xl font-bold">&times;</button>
+      <h3 id="modalTitle" class="text-2xl font-bold text-pink-100 mb-4"></h3>
+      <p id="modalContent" class="text-pink-300 whitespace-pre-wrap"></p>
+    </div>
+  </div>
+  <script>
+    const modal = document.getElementById('loreModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+
+    document.querySelectorAll('a[data-lore]').forEach(card => {
+      card.addEventListener('click', () => {
+        modalTitle.textContent = card.getAttribute('data-title');
+        modalContent.textContent = card.getAttribute('data-lore');
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // disable scroll
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</html>
