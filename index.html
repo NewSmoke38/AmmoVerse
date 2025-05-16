@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AmmoVerse</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/main/gun1.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,34 +18,76 @@
       }
     }
   </script>
+  <style>
+    .shimmer-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-img::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg, transparent 60%, rgba(255,255,255,0.4) 80%, transparent 100%);
+      transform: skewX(-20deg);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .group:hover .shimmer-img::after {
+      animation: shimmer-move 0.8s linear 1;
+      opacity: 1;
+    }
+    @keyframes shimmer-move {
+      0% { left: -75%; opacity: 1; }
+      80% { left: 120%; opacity: 1; }
+      100% { left: 120%; opacity: 0; }
+    }
+  </style>
 </head>
 <body class="bg-pink-100 text-gray-800 font-orbitron">
+  <script>
+    window.onload = function() {
+      setTimeout(function() { window.scrollTo(0, 0); }, 10);
+    };
+  </script>
 
   <!-- Header -->
   <header class="bg-pink-400 p-4 shadow-md flex justify-between items-center">
     <h1 class="text-3xl font-bold text-pink-50">AmmoVerse</h1>
-    <nav>
-      <a href="#submit" class="text-pink-100 hover:text-pink-200">Submit Your Gun</a>
+    <nav class="flex flex-col xs:flex-row gap-2 xs:gap-0 items-end xs:items-center mt-2 xs:mt-0">
+      <a href="#submit" class="text-pink-100 hover:text-pink-200 mr-0 xs:mr-6 text-base xs:text-lg font-semibold tracking-wide px-3 py-1 rounded transition bg-pink-500/80 xs:bg-transparent shadow xs:shadow-none">Submit Your Gun</a>
+      <a href="mailto:shivanialive2007@gmail.com" class="text-pink-100 hover:text-pink-200 text-base xs:text-lg font-semibold tracking-wide px-3 py-1 rounded transition bg-pink-500/80 xs:bg-transparent shadow xs:shadow-none">Contact</a>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="text-center py-12 bg-gradient-to-r from-pink-300 to-pink-200">
-    <h2 class="text-5xl font-extrabold mb-4 text-pink-700">Gear Up. Lock & Load.</h2>
-    <p class="text-pink-600 text-xl font-semibold">Enter the vault of legendary weapons. Style, power, and prestige—all in one loadout.</p>
+  <section class="text-center py-12 bg-gradient-to-r from-pink-300 to-pink-200 px-2 sm:px-4">
+    <h2 class="text-4xl font-extrabold text-pink-800 mb-4 text-balance leading-tight sm:text-4xl text-2xl">
+      Gear Up. Lock & Load.
+    </h2>
+    <p class="text-pink-700 mb-8 max-w-2xl mx-auto text-balance text-base sm:text-lg">
+      Enter the vault of legendary weapons. Style, power, and prestige—all in one loadout.
+    </p>
   </section>
 
-  <!-- Gun Grid -->
-  <section class="p-6 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
+  <!-- Gun Cards Section (kept for main content) -->
+  <section class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
     <!-- Gun Card 1 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Crimson Talon"
-       data-lore="The Crimson Talon is a legendary assault rifle known for its unmatched accuracy and fiery aesthetics. Favored by elite marksmen across the realms."
+       data-lore="The Crimson Talon is a testament to the art of gunmaking. Its sleek lines and deadly efficiency make it a coveted relic among collectors."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun1"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun1.png" alt="AK-47" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun1.png" alt="AK-47" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -57,12 +100,19 @@
 
     <!-- Gun Card 2 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Void Reaver"
        data-lore="Forged from the remnants of a dying star, the Void Reaver channels pure cosmic energy, unleashing devastating beams that pierce the void itself."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun2"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun2.png" alt="Laser Blaster" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun2.png" alt="Laser Blaster" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -75,12 +125,20 @@
 
     <!-- Gun Card 3 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="StormHowl"
        data-lore="The StormHowl sniper rifle echoes with thunderous might. Its .50 caliber rounds are said to split the sky, striking fear and awe in equal measure."
     >
+      <span class="absolute top-2 left-2 bg-indigo-500 text-indigo-50 text-xs font-bold px-3 py-1 rounded-full shadow rotate-[-15deg] z-20">EMP</span>
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun3"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun3.png" alt="Thunder Sniper" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun3.png" alt="Thunder Sniper" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -93,12 +151,19 @@
 
     <!-- Gun Card 4 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Neon Viper"
        data-lore="A favorite among urban operatives, the Neon Viper combines sleek design with serpentine agility, delivering precise shots in the dead of night."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun4"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun4.png" alt="Phoenix Rifle" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun4.png" alt="Phoenix Rifle" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -111,12 +176,20 @@
 
     <!-- Gun Card 5 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Ashbringer X9"
        data-lore="The Ashbringer X9 is a cannon of myth, its explosive payloads reducing obstacles to cinders. Only the bravest dare to wield its raw power."
     >
+      <span class="absolute top-2 left-2 bg-red-400 text-red-900 text-xs font-bold px-3 py-1 rounded-full shadow rotate-[-15deg] z-20">Blast</span>
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun5"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun5.png" alt="Flare Cannon" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun5.png" alt="Flare Cannon" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -129,12 +202,19 @@
 
     <!-- Gun Card 6 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Hex Pulse"
        data-lore="A rapid-fire SMG pulsing with arcane energy, the Hex Pulse overwhelms foes with a torrent of bullets and a touch of dark magic."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun6"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun6.png" alt="Venom SMG" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun6.png" alt="Venom SMG" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -147,12 +227,20 @@
 
     <!-- Gun Card 7 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Ion Fang"
        data-lore="The Ion Fang is a silenced pistol that strikes with lightning speed. Its energy-infused rounds leave no trace—only whispers in the shadows."
     >
+      <span class="absolute top-2 left-2 bg-cyan-400 text-cyan-900 text-xs font-bold px-3 py-1 rounded-full shadow rotate-[-15deg] z-20">Stealth</span>
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun7"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun7.png" alt="Shadow Pistol" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun7.png" alt="Shadow Pistol" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -165,12 +253,19 @@
 
     <!-- Gun Card 8 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Phantom Echo"
        data-lore="Silent as snowfall, the Phantom Echo freezes its targets in place. Its cryo rounds are a chilling reminder of winter's wrath."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun8"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun8.png" alt="Frostbite" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun8.png" alt="Frostbite" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -183,12 +278,20 @@
 
     <!-- Gun Card 9 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Skullfire MK-II"
        data-lore="A rare EMP weapon, the Skullfire MK-II disables tech and terrifies enemies with its skull-shaped muzzle flash. Only the bold attempt to master it."
     >
+      <span class="absolute top-2 left-2 bg-indigo-500 text-indigo-50 text-xs font-bold px-3 py-1 rounded-full shadow rotate-[-15deg] z-20">EMP</span>
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun9"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun9.png" alt="Darkpulse" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun9.png" alt="Darkpulse" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -201,12 +304,20 @@
 
     <!-- Gun Card 10 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Spectral Surge"
        data-lore="The Spectral Surge channels ghostly energy, allowing its wielder to phase through cover and strike from the spirit realm. Unpredictable and feared."
     >
+      <span class="absolute top-2 left-2 bg-pink-500 text-pink-50 text-xs font-bold px-3 py-1 rounded-full shadow rotate-[-15deg] z-20">Spectral</span>
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun10"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun10.png" alt="Spectral Surge" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun10.png" alt="Spectral Surge" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -219,12 +330,19 @@
 
     <!-- Gun Card 11 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Rogueflare"
        data-lore="The Rogueflare is the weapon of exiles, firing incendiary rounds that blaze trails of rebellion. Outlaws and freedom fighters covet its fire."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun11"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun11.png" alt="Rogueflare" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun11.png" alt="Rogueflare" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -237,12 +355,20 @@
 
     <!-- Gun Card 12 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Tundra Spike"
        data-lore="Forged in the frostbitten north, the Tundra Spike fires crystalline projectiles that slow and impale. Its chill lingers long after battle."
     >
+      <span class="absolute top-2 left-2 bg-blue-400 text-blue-50 text-xs font-bold px-3 py-1 rounded-full shadow rotate-[-15deg] z-20">Frost</span>
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun12"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun12.png" alt="Tundra Spike" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun12.png" alt="Tundra Spike" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -255,12 +381,19 @@
 
     <!-- Gun Card 13 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Nova Gauntlet"
        data-lore="Wielding the Nova Gauntlet is like harnessing a supernova in your hands. Its shockwaves can clear entire rooms in a single burst."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun13"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun13.png" alt="Nova Gauntlet" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun13.png" alt="Nova Gauntlet" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -273,12 +406,20 @@
 
     <!-- Gun Card 14 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Plasma Widow"
        data-lore="Deadly and elegant, the Plasma Widow fires web-like streams of plasma that ensnare and burn. A favorite of assassins in the neon underworld."
     >
+      <span class="absolute top-2 left-2 bg-pink-700 text-pink-100 text-xs font-bold px-3 py-1 rounded-full shadow rotate-[-15deg] z-20">Widow</span>
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun14"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun14.png" alt="Plasma Widow" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun14.png" alt="Plasma Widow" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -291,12 +432,19 @@
 
     <!-- Gun Card 15 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Aether Coil"
        data-lore="The Aether Coil bends the laws of physics, firing projectiles that curve around obstacles. Its mysterious energy is as unpredictable as its aim."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun15"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun15.png" alt="Aether Coil" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun15.png" alt="Aether Coil" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -309,12 +457,19 @@
 
     <!-- Gun Card 16 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Blightlock"
        data-lore="Cursed by ancient rituals, the Blightlock infects targets with corrosive rounds. Each shot spreads a toxic plague on the battlefield."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun16"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun16.png" alt="Blightlock" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun16.png" alt="Blightlock" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -327,12 +482,19 @@
 
     <!-- Gun Card 17 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Zenith Ripper"
        data-lore="The Zenith Ripper tears through armor with rotating blades and hypervelocity rounds. Its brutal design is matched only by its efficiency."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun17"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun17.png" alt="Zenith Ripper" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun17.png" alt="Zenith Ripper" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -345,12 +507,19 @@
 
     <!-- Gun Card 18 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Oblivion Shard"
        data-lore="Fragments of an ancient meteor power the Oblivion Shard, a weapon that erases both memory and matter with every shot."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun18"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun18.png" alt="Oblivion Shard" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun18.png" alt="Oblivion Shard" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -363,12 +532,19 @@
 
     <!-- Gun Card 19 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Glitchbane"
        data-lore="Originally designed to debug rogue AIs, the Glitchbane now disrupts digital and organic foes alike with bursts of code-breaking energy."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun19"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun19.png" alt="Glitchbane" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun19.png" alt="Glitchbane" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -381,12 +557,19 @@
 
     <!-- Gun Card 20 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Echo Drifter"
        data-lore="The Echo Drifter is a nomad's best friend, its sound-dampening tech and adaptive rounds perfect for those who walk the wastelands alone."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun20"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun20.png" alt="Echo Drifter" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun20.png" alt="Echo Drifter" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -399,12 +582,19 @@
 
     <!-- Gun Card 21 -->
     <a href="javascript:void(0)"
-       class="relative bg-pink-300 rounded-lg overflow-hidden shadow transition-shadow transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/50 h-80 text-sm cursor-pointer"
+       class="group relative bg-pink-300 rounded-lg overflow-hidden shadow hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out h-80 text-sm cursor-pointer"
        data-title="Reactor Fang"
        data-lore="Powered by a miniature fusion core, the Reactor Fang unleashes searing blasts. Only those with nerves of steel can master its bite."
     >
+      <button
+        class="favorite-btn absolute top-2 right-2 text-white text-2xl z-20 hover:scale-110 transition"
+        data-id="gun21"
+        aria-label="Favorite"
+      >
+        🤍
+      </button>
       <div class="border border-black rounded-md p-2 bg-pink-300">
-        <img src="gun21.png" alt="Reactor Fang" class="h-32 mx-auto my-4 object-contain">
+        <img src="gun21.png" alt="Reactor Fang" class="shimmer-img h-32 mx-auto my-4 object-contain relative z-10">
       </div>
       <div class="border border-black rounded-b-md">
         <div class="bg-pink-600 p-4 rounded-b-md">
@@ -414,28 +604,152 @@
         </div>
       </div>
     </a>
+  </section>
 
-    <!-- Submission Callout -->
-    <div id="submit" class="col-span-full mt-12 bg-pink-100 border-2 border-pink-400 rounded-lg p-6 text-center shadow-lg font-sans">
-      <h3 class="text-3xl font-extrabold text-pink-800 mb-2 tracking-wide">Submit a Gun. Make It a Legend.</h3>
-      <p class="text-pink-700 mb-3">Got a favorite weapon from your gaming grind or cinematic dreamscape?</p>
-      <p class="text-pink-600 mb-3">Join the AmmoVerse crew. Add your legendary loadout with just one pull request.</p>
-      <p class="text-pink-500 italic">No textures. No render rigs. Just pure lore and firepower.</p>
-      <a href="https://github.com/NewSmoke38/AmmoVerse" target="_blank" class="inline-block mt-4 px-6 py-2 bg-pink-700 text-white font-semibold rounded hover:bg-pink-800 transition">
-        Contribute on GitHub
-      </a>
+  <!-- Leaderboard Section -->
+  <section id="leaderboard" class="max-w-7xl mx-auto p-2 sm:p-6 mb-12 bg-pink-50 rounded-lg shadow-lg flex flex-col items-center">
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-pink-700 mb-4 sm:mb-6 text-center">AmmoVerse Leaderboard</h2>
+    <div class="w-full min-w-0 overflow-x-auto sm:overflow-x-auto flex justify-center">
+      <table class="w-full sm:min-w-[1166px] text-left border-collapse text-xs sm:text-base mx-auto">
+        <thead>
+          <tr class="border-b border-pink-300">
+            <th class="py-3 px-2 sm:px-4 text-pink-700 font-semibold">Rank</th>
+            <th class="py-3 px-2 sm:px-4 text-pink-700 font-semibold">Gun Name</th>
+            <th class="py-3 px-2 sm:px-4 text-pink-700 font-semibold">Power Score</th>
+            <th class="py-3 px-2 sm:px-4 text-pink-700 font-semibold">Power Bar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-pink-200 hover:bg-pink-100">
+            <td class="py-3 px-4 font-bold text-pink-900">1</td>
+            <td class="py-3 px-4">Crimson Talon</td>
+            <td class="py-3 px-4 font-semibold text-pink-800">98</td>
+            <td class="py-3 px-4">
+              <div class="w-40 bg-pink-200 rounded-full h-4 overflow-hidden">
+                <div class="bg-pink-500 h-4 rounded-full" style="width:98%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-pink-200 hover:bg-pink-100">
+            <td class="py-3 px-4 font-bold text-pink-900">2</td>
+            <td class="py-3 px-4">StormHowl</td>
+            <td class="py-3 px-4 font-semibold text-pink-800">90</td>
+            <td class="py-3 px-4">
+              <div class="w-40 bg-pink-200 rounded-full h-4 overflow-hidden">
+                <div class="bg-pink-500 h-4 rounded-full" style="width:90%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-pink-200 hover:bg-pink-100">
+            <td class="py-3 px-4 font-bold text-pink-900">3</td>
+            <td class="py-3 px-4">Void Reaver</td>
+            <td class="py-3 px-4 font-semibold text-pink-800">84</td>
+            <td class="py-3 px-4">
+              <div class="w-40 bg-pink-200 rounded-full h-4 overflow-hidden">
+                <div class="bg-pink-500 h-4 rounded-full" style="width:84%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-pink-200 hover:bg-pink-100">
+            <td class="py-3 px-4 font-bold text-pink-900">4</td>
+            <td class="py-3 px-4">Neon Viper</td>
+            <td class="py-3 px-4 font-semibold text-pink-800">80</td>
+            <td class="py-3 px-4">
+              <div class="w-40 bg-pink-200 rounded-full h-4 overflow-hidden">
+                <div class="bg-pink-500 h-4 rounded-full" style="width:80%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-pink-200 hover:bg-pink-100">
+            <td class="py-3 px-4 font-bold text-pink-900">5</td>
+            <td class="py-3 px-4">Ashbringer X9</td>
+            <td class="py-3 px-4 font-semibold text-pink-800">77</td>
+            <td class="py-3 px-4">
+              <div class="w-40 bg-pink-200 rounded-full h-4 overflow-hidden">
+                <div class="bg-pink-500 h-4 rounded-full" style="width:77%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-pink-200 hover:bg-pink-100">
+            <td class="py-3 px-4 font-bold text-pink-900">6</td>
+            <td class="py-3 px-4">Hex Pulse</td>
+            <td class="py-3 px-4 font-semibold text-pink-800">73</td>
+            <td class="py-3 px-4">
+              <div class="w-40 bg-pink-200 rounded-full h-4 overflow-hidden">
+                <div class="bg-pink-500 h-4 rounded-full" style="width:73%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-pink-200 hover:bg-pink-100">
+            <td class="py-3 px-4 font-bold text-pink-900">7</td>
+            <td class="py-3 px-4">Ion Fang</td>
+            <td class="py-3 px-4 font-semibold text-pink-800">70</td>
+            <td class="py-3 px-4">
+              <div class="w-40 bg-pink-200 rounded-full h-4 overflow-hidden">
+                <div class="bg-pink-500 h-4 rounded-full" style="width:70%"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>   
+
+  <!-- Submission Callout -->
+  <div id="submit" class="col-span-full mt-12 bg-pink-100 border-2 border-pink-400 rounded-lg p-12 text-center shadow-lg font-sans max-w-2xl mx-auto">
+    <h3 class="text-3xl font-extrabold text-pink-800 mb-2 tracking-wide">Submit a Gun. Make It a Legend.</h3>
+    <p class="text-pink-700 mb-3">Got a favorite weapon from your gaming grind or cinematic dreamscape?</p>
+    <p class="text-pink-600 mb-3">Join the AmmoVerse crew. Add your legendary loadout with just one pull request.</p>
+    <p class="text-pink-500 italic">No textures. No render rigs. Just pure lore and firepower.</p>
+    <a href="https://github.com/NewSmoke38/AmmoVerse" target="_blank" class="inline-block mt-4 px-6 py-2 bg-pink-700 text-white font-semibold rounded hover:bg-pink-800 transition">
+      Contribute on GitHub
+    </a>
+  </div>
+
+  <!-- Player Reviews Section -->
+  <section id="reviews" class="max-w-4xl mx-auto px-6 py-10 mb-8 bg-pink-50 rounded-lg shadow-md">
+    <h2 class="text-3xl font-extrabold text-pink-700 mb-6 text-center">Player Reviews</h2>
+    <div class="space-y-6">
+      <div class="bg-white p-4 rounded shadow">
+        <p class="text-pink-800 italic">"AmmoVerse is fire. The guns look insane and the lore? Chef's kiss. Keep shipping!"</p>
+        <p class="text-sm text-pink-600 mt-2 text-right">— @cyberghost77</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <p class="text-pink-800 italic">"Never thought I'd fall in love with fictional weapons. I want these in my next game mod."</p>
+        <p class="text-sm text-pink-600 mt-2 text-right">— @hexedhunter</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center p-6 mt-12 border-t border-pink-400 text-pink-600">
-    © 2025 AmmoVerse. All loadouts fictional.
-    <br>
-    Gun artwork credit: <a href="https://www.deviantart.com" target="_blank" class="underline hover:text-pink-500">DeviantArt creators</a>
+  <footer class="flex items-center justify-between text-center p-6 mt-12 border-t border-pink-400 text-pink-600">
+    <!-- Small Awesome Button (checkbox/label hack) -->
+    <div class="relative flex flex-col items-start">
+      <input type="checkbox" id="awesome-toggle" class="peer hidden">
+      <div class="absolute left-0 -top-12 w-40 bg-white border border-pink-300 rounded-lg shadow-lg p-2 text-pink-700 font-semibold text-center opacity-0 scale-95 pointer-events-none peer-checked:opacity-100 peer-checked:scale-100 peer-checked:pointer-events-auto transition-all duration-300 z-10 text-sm">
+        you're awesome!!!!
+      </div>
+      <label for="awesome-toggle" class="cursor-pointer px-3 py-1 bg-pink-500 text-white rounded-full font-semibold shadow hover:bg-pink-600 transition text-xs select-none mt-0">
+        click on me!
+      </label>
+    </div>
+    <span class="mx-auto">
+      © 2025 AmmoVerse. All loadouts fictional.<br>
+      Gun artwork credit: <a href="https://www.deviantart.com" target="_blank" class="underline hover:text-pink-500">DeviantArt creators</a>
+    </span>
+    <span class="w-16"></span>
   </footer>
 
-</body>
-  <!-- Lore Modal -->
+  <!-- Scroll to Top Button -->
+  <a href="#top" title="Go to top"
+    class="fixed bottom-6 right-6 z-50 bg-pink-500 hover:bg-pink-700 text-white rounded-full shadow-lg p-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-300"
+    style="scroll-behavior: smooth;">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </a>
+
+  <!-- Lore Modal & Favorite Button Script -->
   <div id="loreModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 hidden z-50">
     <div class="bg-pink-900 rounded-lg max-w-lg w-full p-6 relative">
       <button id="closeModal" class="absolute top-3 right-3 text-pink-300 hover:text-pink-100 text-2xl font-bold">&times;</button>
@@ -469,5 +783,34 @@
         document.body.style.overflow = '';
       }
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[data-title]').forEach((card, idx) => {
+        const id = card.getAttribute('data-title');
+        if (!card.querySelector('.favorite-btn')) {
+          const btn = document.createElement('button');
+          btn.className = 'favorite-btn absolute top-2 right-2 text-2xl bg-white bg-opacity-50 rounded-full px-2 py-0.5 hover:bg-pink-200 transition';
+          btn.setAttribute('data-id', id);
+          btn.style.zIndex = 10;
+          const saved = localStorage.getItem(id) === 'true';
+          btn.textContent = saved ? '♥️' : '🤍';
+          card.appendChild(btn);
+        }
+      });
+      const favButtons = document.querySelectorAll('.favorite-btn');
+      favButtons.forEach(btn => {
+        const id = btn.dataset.id;
+        const saved = localStorage.getItem(id) === 'true';
+        btn.textContent = saved ? '♥️' : '🤍';
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const current = localStorage.getItem(id) === 'true';
+          const next = !current;
+          localStorage.setItem(id, next);
+          btn.textContent = next ? '♥️' : '🤍';
+        });
+      });
+    });
   </script>
+</body>
 </html>
